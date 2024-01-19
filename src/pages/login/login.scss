@@ -1,0 +1,69 @@
+/* Trong file CSS của bạn */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 800px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 300px;
+}
+
+.login-content {
+    display: flex;
+    align-items: center;
+}
+
+.left-image {
+    flex: 1;
+}
+
+.left-image img {
+    width: 500px;
+    height: 300px;
+}
+
+.login-form {
+    flex: 2;
+    padding: 0 20px;
+}
+
+.login-heading {
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-weight: 900;
+}
+
+.google-login-button {
+    padding: 10px 15px;
+    background-color: #033dda;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 30px;
+
+}
+
+.google-login-button:hover {
+    background-color: #cc3d32;
+}
+
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info p {
+    margin-bottom: 10px;
+}
+
+.additional-info a {
+    color: blue;
+}
