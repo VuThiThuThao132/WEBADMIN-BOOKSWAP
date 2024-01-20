@@ -73,9 +73,9 @@
 
 // export default App;
 
-import Home from "./pages/home/Home";
 // import New from "./pages/new/New";
 // import { userInputs } from "./formSource";
+import Home from "./pages/home/Home";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -96,6 +96,7 @@ import UserList from "./pages/list/UserList";
 import Category from "./pages/view/Book/Category";
 import AddCategory from "./pages/view/Book/Add/AddCategory";
 import Login from "./pages/login/Login";
+import Logout from "./pages/login/Logout";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -133,6 +134,8 @@ function App() {
           <Route path="/category" element={<Category />}>
             <Route path="add" element={<AddCategory />} />
           </Route>
+          <Route path="/logout" element={<Logout />} />
+
         </Routes>
       </BrowserRouter>
     </div>

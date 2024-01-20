@@ -111,7 +111,7 @@ const ViewBook = () => {
                                 onSave={handleSave}
                             />
                         )}
-                        <h1 >Thông tin sách chi tiết</h1>
+                        <h1 >Thông tin chi tiết sách </h1>
                         <div className="item">
                             <div className="details">
                                 {bookData && (

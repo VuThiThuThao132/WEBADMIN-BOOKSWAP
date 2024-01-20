@@ -11,7 +11,6 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import CategoryIcon from '@mui/icons-material/Category';
-import BookBeginningIcon from '@mui/icons-material/MenuBook';
 // import AnalyticsIcon from '@mui/icons-material/Analytics';
 // import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 // import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined';
@@ -22,12 +21,16 @@ import BookBeginningIcon from '@mui/icons-material/MenuBook';
 const Sidebar = () => {
   const navigate = useNavigate();
   const { dispatch } = useContext(DarkModeContext);
-  const { currentUser, dispatch: authDispatch } = useContext(AuthContext); // Lấy dispatch từ AuthContext
-  const handleLogout = async () => {
-    try {
+  const { dispatch: authDispatch } = useContext(AuthContext); // Assuming you have a dispatch function in AuthContext
+  const currentUser = localStorage.getItem("authTokens");
 
-      authDispatch({ type: 'Đăng xuất' });
-      navigate('/login');
+  const handleLogout = () => {
+    try {
+      console.log('Logging out...');
+      localStorage.removeItem("authTokens");
+      localStorage.removeItem("refeshToken");
+      authDispatch({ type: 'LOGOUT' });
+      navigate('/');
     } catch (error) {
       console.error('Error logging out:', error);
     }
@@ -121,10 +124,12 @@ const Sidebar = () => {
             <span>Profile</span>
           </li> */}
           {currentUser && (
-            <li onClick={handleLogout}>
-              <InputOutlinedIcon className="icon" />
-              <span>Đăng xuất</span>
-            </li>
+            <Link to="/logout" style={{ textDecoration: "none" }} onClick={handleLogout}>
+              <li>
+                <InputOutlinedIcon className="icon" />
+                <span>Đăng xuất</span>
+              </li>
+            </Link>
           )}
         </ul>
 

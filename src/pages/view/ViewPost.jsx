@@ -117,7 +117,7 @@ const ViewPost = () => {
                                                 return (
                                                     <div className="postItem" key={post.id}>
                                                         <div className="postSection">
-                                                            <h5>Thông in chi tiết bài đăng</h5>
+                                                            <h5>Thông tin chi tiết bài đăng</h5>
                                                             {/* <div className="detailItem">
                                                                 <span className="itemKey">ID bài đăng: </span>
                                                                 <span className="itemValue">{post.id}</span>
