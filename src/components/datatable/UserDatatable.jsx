@@ -46,6 +46,7 @@ const UserDatatable = () => {
               image: item.image || 'NULL',
               totalRate: item.totalRate || '0',
               numOfRate: item.numOfRate || '0',
+              role: item.role || 'NULL',
               userWalletDTO: {
                 id: item.userWalletDTO.id || 'NULL',
                 balance: item.userWalletDTO.balance || 'NULL',

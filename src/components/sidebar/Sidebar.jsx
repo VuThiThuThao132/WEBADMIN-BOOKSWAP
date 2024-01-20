@@ -72,12 +72,12 @@ const Sidebar = () => {
                   <span>Thể loại</span>
                 </li>
               </Link>
-              <Link to="/books/book-beginning" style={{ textDecoration: "none" }}>
+              {/* <Link to="/books/book-beginning" style={{ textDecoration: "none" }}>
                 <li>
                   <BookBeginningIcon className="icon" />
                   <span>Đầu sách</span>
                 </li>
-              </Link>
+              </Link> */}
             </ul>
           </Link>
           <Link to="/posts" style={{ textDecoration: "none" }}>

@@ -65,13 +65,18 @@ export const userColumns = [
     width: 100,
   },
   {
+    field: "role",
+    headerName: "Vai trò",
+    width: 100,
+  },
+  {
     field: "userWalletDTO",
     headerName: "Ví",
     width: 280,
     renderCell: (params) => {
       return (
         <div>
-          <div>ID: {params.row.userWalletDTO.id} /</div>
+          {/* <div>ID: {params.row.userWalletDTO.id} /</div> */}
           <div>Tiền: {params.row.userWalletDTO.balance}</div>
         </div>
       );

@@ -122,10 +122,10 @@ const ViewBook = () => {
                                                     <div className="postItem" key={book.id}>
 
                                                         <div className="postSection">
-                                                            <div className="detailItem">
+                                                            {/* <div className="detailItem">
                                                                 <span className="itemKey">ID Sách: </span>
                                                                 <span className="itemValue">{book.id}</span>
-                                                            </div>
+                                                            </div> */}
 
                                                             <div className="detailItem">
                                                                 <div className="itemValue images-container">

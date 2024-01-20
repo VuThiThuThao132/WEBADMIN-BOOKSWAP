@@ -118,10 +118,10 @@ const ViewPost = () => {
                                                     <div className="postItem" key={post.id}>
                                                         <div className="postSection">
                                                             <h5>Thông in chi tiết bài đăng</h5>
-                                                            <div className="detailItem">
+                                                            {/* <div className="detailItem">
                                                                 <span className="itemKey">ID bài đăng: </span>
                                                                 <span className="itemValue">{post.id}</span>
-                                                            </div>
+                                                            </div> */}
                                                             <div className="detailItem">
                                                                 <span className="itemKey">Đầu đề:</span>
                                                                 <span className="itemValue">{post.caption ?? 'NULL'}</span>

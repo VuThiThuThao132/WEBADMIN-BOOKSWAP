@@ -83,10 +83,10 @@ const ViewOrder = () => {
                                                     <div className="postItem" key={order.id}>
                                                         <div className="orderSection">
                                                             <h5>Thông tin đơn hàng</h5>
-                                                            <div className="detailItem">
+                                                            {/* <div className="detailItem">
                                                                 <span className="itemKey">ID đơn hàng: </span>
                                                                 <span className="itemValue">{order.id}</span>
-                                                            </div>
+                                                            </div> */}
                                                             <div className="detailItem">
                                                                 <span className="itemKey">Giá gửi:</span>
                                                                 <span className="itemValue">{order.senderPrice ?? 'NULL'}</span>
