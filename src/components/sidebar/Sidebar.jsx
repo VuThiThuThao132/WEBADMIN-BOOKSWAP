@@ -49,7 +49,7 @@ const Sidebar = () => {
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li> */}
-          <li onClick={() => navigate('/')}>
+          <li onClick={() => navigate('/home')}>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li>

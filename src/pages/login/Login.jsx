@@ -26,7 +26,7 @@ const Login = () => {
 
   // Nếu đã đăng nhập thành công, chuyển hướng đến trang Home
   if (loggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
 
   return (
