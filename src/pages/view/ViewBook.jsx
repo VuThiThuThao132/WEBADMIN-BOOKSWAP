@@ -57,7 +57,7 @@ const ViewBook = () => {
     const handleSave = (editedData) => {
         console.log("editedData", editedData);
 
-        axiosInstance.post(
+        axiosInstance.put(
             `https://bookswapplatform.site/bookswap/api/v1/book/modify?bookId=${bookId}`,
             editedData,
 

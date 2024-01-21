@@ -1,6 +1,7 @@
 import "./editPost.scss";
 import React, { useState, useEffect } from "react";
-
+import { storage } from '../../firebase';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 const EditBook = ({ bookId, bookData, onSave, onClose }) => {
     const [editedData, setEditedData] = useState({
         title: "",
@@ -73,18 +74,54 @@ const EditBook = ({ bookId, bookData, onSave, onClose }) => {
         e.preventDefault();
         onSave(editedData);
     };
-    const handleFileChange = (e, fieldName) => {
+    // const handleFileChange = async (e, fieldName) => {
+    //     const file = e.target.files[0];
+
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onload = (e) => {
+    //             // setEditedData({ ...editedData, [fieldName]: e.target.result });
+    //             const uniqueID = Date.now().toString(36) + Math.random().toString(36).substring(2);
+    //             const filename = `image_${uniqueID}.jpg`;
+    //             const reference = storage().ref(filename);
+    //             console.log("onLoad", e.currentTarget.result)
+    //             reference.putFile(e.target.result)
+    //             const downloadURL = reference.getDownloadURL();
+    //             console.log("downloadURL", downloadURL)
+    //         };
+    //         reader.readAsDataURL(file);
+    //         console.log("readAsDataURL", e)
+
+    //     }
+    // };
+    const handleFileChange = async (e, fieldName) => {
         const file = e.target.files[0];
 
         if (file) {
             const reader = new FileReader();
-            reader.onload = (e) => {
-                setEditedData({ ...editedData, [fieldName]: e.target.result });
+
+            reader.onload = async (e) => {
+                const uniqueID = Date.now().toString(36) + Math.random().toString(36).substring(2);
+                const filename = `image_${uniqueID}.jpg`;
+                const storageRef = ref(storage, filename);
+
+                // Convert data URL to a Blob
+                const blob = await fetch(e.target.result).then((res) => res.blob());
+
+                // Upload the file
+                await uploadBytes(storageRef, blob);
+
+                // Get the download URL
+                const downloadURL = await getDownloadURL(storageRef);
+                console.log('downloadURL', downloadURL)
+                setEditedData({ ...editedData, [fieldName]: downloadURL });
+
+                // Now, you can use the downloadURL as needed (e.g., save it in your state)
             };
+
             reader.readAsDataURL(file);
         }
     };
-
     const handleSave = () => {
         const dataToSave = {
             title: editedData.title,
